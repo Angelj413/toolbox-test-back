@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import chalk from 'chalk'
 import swaggerJsdoc from 'swagger-jsdoc'
 import swaggerUi from 'swagger-ui-express'
+import cors from 'cors'
 
 import indexRoute from './routes/index.js'
 import errorHandler from './middlewares/errorHandlers.js'
@@ -24,8 +25,10 @@ app.use('/', indexRoute)
 // Custom error handler middleware
 app.use(errorHandler)
 
+app.use(cors())
+
 // Start the Express.js server
-const port = PORT || 3000
+const port = PORT || 4000
 
 app.listen(port, () => {
   logger.info(`Server is running on port ${port}`)

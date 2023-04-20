@@ -36,7 +36,7 @@ export const getFileNames = async () => {
  * @returns {Object} file data parsed
  */
 export const findFileByName = async (name) => {
-  return filesObjects[name]
+  return filesObjects[name] ? [filesObjects[name]] : []
 }
 
 /**
