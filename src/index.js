@@ -18,8 +18,13 @@ const app = express()
 // Middleware setup
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(morgan(':method :url :status :response-time ms'))
-
+app.use(
+  morgan('combined', {
+    stream: {
+      write: (message) => logger.info(message.trim())
+    }
+  })
+)
 app.use('/', indexRoute)
 
 // Custom error handler middleware

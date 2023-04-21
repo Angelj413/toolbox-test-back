@@ -59,12 +59,10 @@ const parseStringToObjectArray = (str) => {
   const lines = str.split('\n').slice(1) // Split the string into lines and ignore the first line
   const objectArray = []
   lines.forEach((line) => {
-    console.log('line: ', line)
     const values = line.split(',')
     if (values.length < 4) return
     if (values.find((value) => value === '') === '') return
     const [, text, number, hex] = values
-    console.log('Number(number.trim()): ', number)
     const obj = {
       text,
       number,
